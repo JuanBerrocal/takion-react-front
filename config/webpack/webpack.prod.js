@@ -9,6 +9,18 @@ module.exports = merge( common, {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                        {
+                        loader: require.resolve('babel-loader'),
+                        options: {
+                            plugins: [require.resolve('react-refresh/babel')],
+                            },
+                        },    
+                    ],
+                },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -19,5 +31,18 @@ module.exports = merge( common, {
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
         ],
-    }
+    },
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'all',
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    enforce: true,
+                },
+            },
+        },
+    },
 });

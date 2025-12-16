@@ -1,15 +1,16 @@
 
 import Axios from 'axios';
+import {axiosClient} from '@/core/api';
 import {PostModel} from './post.model';
 
-const ax = Axios.create(
+/*const ax = Axios.create(
     {baseURL: 'http://localhost:8000', withCredentials: true}
-);
+);*/
 
 export const getPostList = async ():Promise<PostModel[]> => {
 
     try {
-        const {data} = await ax.get('/postlist');
+        const {data} = await axiosClient.get('/postlist');
 
         // We must set the offset for every DateTime in the array.
         let now = new Date();

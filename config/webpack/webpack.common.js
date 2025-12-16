@@ -1,9 +1,13 @@
+const webpack = require('webpack');
+const path = require("path");
+const dotenv = require('dotenv');
+const fs = require('fs');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-//const path = require("path");
 const helpers = require('./helpers');
+
 
 
 module.exports = { 
@@ -23,8 +27,8 @@ module.exports = {
         extensions: [".js", ".ts", ".tsx"],
         plugins: [new TsconfigPathsPlugin({
             extensions:[".js", ".ts", ".tsx"],
-            configFile: "tsconfig.json"
-        })]
+            configFile: "tsconfig.json"}),
+        ]
       },
     output: {
         filename: "[name].[chunkhash].js",
@@ -69,3 +73,4 @@ module.exports = {
      ],
     
 }
+

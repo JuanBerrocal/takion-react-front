@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {axiosClient} from '@/core/api'
 import { generatePath } from "react-router-dom";
 
 import { PostModel } from '@/pods/post-list/api/post.model';
@@ -6,10 +7,10 @@ import { PostModel } from '@/pods/post-list/api/post.model';
 export const doWritePost = async (isNewPost: boolean, post: PostModel) => {
 
     // Creates axios instance.
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         var now = new Date();
@@ -17,12 +18,12 @@ export const doWritePost = async (isNewPost: boolean, post: PostModel) => {
 
         if (isNewPost) {
             post.created = now.toISOString();
-            const response = await ax.post('/postinsert', post);
+            const response = await axiosClient.post('/postinsert', post);
             return response;
         }
         else {
             
-            const response = await ax.post(`/postupdate/${post.id}`, post);
+            const response = await axiosClient.post(`/postupdate/${post.id}`, post);
             return response;
         }
     }
@@ -32,14 +33,14 @@ export const doWritePost = async (isNewPost: boolean, post: PostModel) => {
 }
 
 export const readPost = async (postId: string) => {
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         console.log(`/postread/${postId}`);
-        const { data } = await ax.get(`/postread/${postId}`);
+        const { data } = await axiosClient.get(`/postread/${postId}`);
 
         console.log("DEBUG. El ID del post leido es: ", data['id']);
         console.log("DEBUG. El titulo del post leido es: ", data['title']);
@@ -75,14 +76,14 @@ export const readPost = async (postId: string) => {
 }
 
 export const deletePost = async (postId: string) => {
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         console.log(`/postread/${postId}`);
-        await ax.delete(`/postdelete/${postId}`);
+        await axiosClient.delete(`/postdelete/${postId}`);
     }
     catch (error) {
         console.log(error);

@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {axiosClient} from '@/core/api';
 import { generatePath } from "react-router-dom";
 
 import { TopicModel } from '@/pods/topic-list/api/topic.model';
@@ -6,19 +7,19 @@ import { TopicModel } from '@/pods/topic-list/api/topic.model';
 export const doWriteTopic = async (isNewTopic: boolean, topic: TopicModel) => {
 
     // Creates axios instance.
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         if (isNewTopic) {
-            const response = await ax.post('/topicinsert', topic);            
+            const response = await axiosClient.post('/topicinsert', topic);            
             return response;
         }
         else {
             // Here we update an existing topic.
-            const response = await ax.post(`/topicupdate/${topic.id}`, topic);
+            const response = await axiosClient.post(`/topicupdate/${topic.id}`, topic);
             return response;
         }
     }
@@ -28,14 +29,14 @@ export const doWriteTopic = async (isNewTopic: boolean, topic: TopicModel) => {
 }
 
 export const readTopic = async (topicId: string) => {
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         console.log(`/topicread/${topicId}`);
-        const { data } = await ax.get(`/topicread/${topicId}`);
+        const { data } = await axiosClient.get(`/topicread/${topicId}`);
         return data;
     }
     catch (error) {
@@ -44,14 +45,14 @@ export const readTopic = async (topicId: string) => {
 }
 
 export const deleteTopic = async (topicId: string) => {
-    const ax = Axios.create({
+    /*const ax = Axios.create({
         baseURL: 'http://localhost:8000',
         withCredentials: true
-    });
+    });*/
 
     try {
         
-        const response = await ax.delete(`/topicdelete/${topicId}`);
+        const response = await axiosClient.delete(`/topicdelete/${topicId}`);
         return response;
     }
     catch (error) {

@@ -2,7 +2,7 @@
 import Axios from 'axios';
 import {LoginSession} from './login.session';
 import {Login} from '@/pods/login/login.vm';
-import {setHeader, headerConstants} from '@/core/api';
+import {axiosClient} from '@/core/api';
 
 /*export const login = async (login: Login): Promise<LoginToken> => {
 
@@ -24,12 +24,12 @@ export const doLogin = async (user: string, password: string): Promise<LoginSess
 
     try {
         //Axios.defaults.withCredentials = true;
-        const ax = Axios.create({
+        /*const ax = Axios.create({
             baseURL: 'http://localhost:8000',
             withCredentials: true,
-          });
+          });*/
 
-        const {data} = await ax.post<LoginSession>('/login', {user, password});
+        const {data} = await axiosClient.post<LoginSession>('/login', {user, password});
         
         // When we use cookies, we don't need this any longer.
         //setHeader(headerConstants.authorization, data.token);
