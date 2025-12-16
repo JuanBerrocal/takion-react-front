@@ -45,7 +45,7 @@
 
 
 
-  "build:prod": "webpack --config ./webpack.prod.js",
+  "build:prod": "webpack --config ./config/webpack/webpack.prod.js",
  
 
 
