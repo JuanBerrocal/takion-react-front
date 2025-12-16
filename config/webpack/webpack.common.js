@@ -2,13 +2,31 @@ const webpack = require('webpack');
 const path = require("path");
 const dotenv = require('dotenv');
 const fs = require('fs');
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const helpers = require('./helpers');
 
+// Builds the path string.
+const currentPath = path.resolve(__dirname);
+const basePath = currentPath + '/.env';
+const envPath = basePath + '.' + process.env.NODE_ENV;
 
+// Uses the env.NODE_ENV archive only if exists. If not, use .env
+const finalPath = fs.existsSync(envPath)
+  ? envPath
+  : basePath;
+
+// Loads the .env detected file. Parses it into a JSON string, if fails returns an ampty object.
+const envConfig = dotenv.config({ path: finalPath }).parsed || {};
+
+// Constructs the JSON object to be loaded in webpack with DefinePlugin.
+const envKeys = Object.keys(envConfig).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(envConfig[next]);
+  return prev;
+}, {});
 
 module.exports = { 
     context: helpers.resolveFromRootPath('src'),
@@ -60,6 +78,7 @@ module.exports = {
         ], 
     },
     plugins: [
+        new webpack.DefinePlugin(envKeys),
         new HtmlWebpackPlugin({
         template: "./index.html",
         filename: "index.html",
