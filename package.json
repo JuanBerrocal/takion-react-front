@@ -1,197 +1,670 @@
 {
- 
+ 
+
+
+
+
   "name": "takion-react",
- 
+ 
+
+
+
+
   "version": "1.0.0",
- 
+ 
+
+
+
+
   "description": "",
- 
+ 
+
+
+
+
   "main": "index.js",
- 
+ 
+
+
+
+
   "scripts": {
- 
-   
+
   "start": "run-p -l type-check start:dev",
- 
-   
-  "build": "run-p -l type-check build:prod",
- 
-   
+
+  "build": "npm run build:prod",
+
   "start:dev": "webpack serve --config ./config/webpack/webpack.dev.js",
- 
-   
-  "build:prod": "webpack --config ./config/webpack/webpack.prod.js",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
+  "build:prod": "webpack --config webpack.prod.js",
+ 
+
+
+
+
+   
+
+
+
+
   "type-check": "tsc --noEmit",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "test": "echo \"Error: no test specified\" && exit 1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "type-check:watch": "npm run type-check -- --watch"
- 
+ 
+
+
+
+
   },
- 
+ 
+
+
+
+
   "keywords": [],
- 
+ 
+
+
+
+
   "author": "Juan Berrocal",
- 
+ 
+
+
+
+
   "license": "ISC",
- 
+ 
+
+
+
+
   "browsersList": [
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   ">0.2%",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "not dead",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "not op_mini all"
- 
+ 
+
+
+
+
   ],
- 
+ 
+
+
+
+
   "devDependencies": {
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/core": "^7.17.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/preset-env": "^7.16.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/preset-react": "^7.22.15",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/preset-typescript": "^7.22.15",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@types/react": "^18.2.21",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@types/react-dom": "^18.2.7",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "axios": "^1.5.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "babel-loader": "^9.1.3",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "clean-webpack-plugin": "^4.0.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "core-js": "^3.23.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "css-loader": "^6.8.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "dotenv": "^17.2.3",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "html-loader": "^4.2.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "html-webpack-plugin": "^5.5.4",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "mini-css-extract-plugin": "^2.7.6",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "npm-run-all": "^4.1.5",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "process": "^0.11.10",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "prop-types": "^15.8.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "react": "^18.2.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "react-dom": "^18.2.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "react-refresh": "^0.14.2",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "react-router-dom": "^6.20.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "regenerator-runtime": "^0.13.9",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "rimraf": "^5.0.5",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "sass": "^1.69.5",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "sass-loader": "^13.3.2",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "style-loader": "^3.3.3",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "ts-loader": "^9.4.4",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "tsconfig-paths-webpack-plugin": "^4.1.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "typescript": "^5.2.2",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "webpack": "^5.74.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "webpack-cli": "^4.10.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "webpack-dev-server": "^4.15.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "webpack-merge": "^5.10.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "webpack-notifier": "^1.15.0"
- 
+ 
+
+
+
+
   },
- 
+ 
+
+
+
+
   "dependencies": {
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/plugin-proposal-class-properties": "^7.18.6",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/plugin-transform-class-properties": "^7.22.5",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@babel/plugin-transform-runtime": "^7.22.15",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@emotion/css": "^11.11.2",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@emotion/react": "^11.11.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@emotion/styled": "^11.11.0",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@mui/icons-material": "^5.16.1",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "@mui/material": "^5.14.16",
- 
-   
+ 
+
+
+
+
+   
+
+
+
+
   "formik": "^2.4.6"
- 
+ 
+
+
+
+
   }
 }
