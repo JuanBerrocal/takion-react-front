@@ -1,7 +1,9 @@
 const webpack = require('webpack');
 const path = require("path");
-const dotenv = require('dotenv');
-const fs = require('fs');
+//const envConfig = process.env;
+
+//const dotenv = require('dotenv');
+//const fs = require('fs');
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -10,7 +12,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const helpers = require('./helpers');
 
 // Builds the path string.
-const currentPath = path.resolve(__dirname);
+/*const currentPath = path.resolve(__dirname);
 const basePath = currentPath + '/.env';
 const envPath = basePath + '.' + process.env.NODE_ENV;
 
@@ -27,6 +29,7 @@ const envKeys = Object.keys(envConfig).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(envConfig[next]);
   return prev;
 }, {});
+*/
 
 module.exports = { 
     context: helpers.resolveFromRootPath('src'),
@@ -78,7 +81,7 @@ module.exports = {
         ], 
     },
     plugins: [
-        new webpack.DefinePlugin(envKeys),
+        new webpack.DefinePlugin({'process.env.API_URL': JSON.stringify(process.env.API_URL),}),
         new HtmlWebpackPlugin({
         template: "./index.html",
         filename: "index.html",
