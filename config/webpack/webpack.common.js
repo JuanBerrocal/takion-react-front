@@ -58,18 +58,6 @@ module.exports = {
     },
     module: { 
         rules: [ 
-             
-                /*test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: [
-                        {
-                        loader: require.resolve('babel-loader'),
-                        options: {
-                            plugins: [require.resolve('react-refresh/babel')],
-                            },
-                        },    
-                    ],
-                },*/
             {
                 test: /\.html$/,
                 loader: "html-loader",
