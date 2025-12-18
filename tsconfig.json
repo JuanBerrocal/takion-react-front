@@ -1,21 +1,26 @@
 {
     "compilerOptions": {
-      "target": "es6",
-      "module": "es6",
+      "target": "ES2018",
+      "module": "ESNext",
       "moduleResolution": "node",
       "declaration": false,
       "noImplicitAny": false,
+      "strict": false,
       "allowSyntheticDefaultImports": true,
       "sourceMap": true,
-      "jsx": "react",
+      "noEmit": true,
+      "jsx": "react-jsx",
       "noLib": false,
-      //"suppressImplicitAnyIndexErrors": true,
       "skipLibCheck": true,
       "esModuleInterop": true,
-      "baseUrl": "./src/",
+      "baseUrl": ".",
       "paths": {
-        "@/*": ["*"]
-        }
+        "@/*": ["src/*"]
+        },
+      "lib": ["DOM", "DOM.Iterable", "ESNext"],
+      "types": ["react", "react-dom"]
       },
-    "include": ["src/**/*.ts","src/**/*.tsx"],
+    "include": [ "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/types/**/*.d.ts"],
   }
