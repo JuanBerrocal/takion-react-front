@@ -20,7 +20,8 @@
       "lib": ["DOM", "DOM.Iterable", "ESNext"],
       "types": ["react", "react-dom"]
       },
-    "include": [ "src/**/*.ts",
+    "include": [ "src",
+      "src/**/*.ts",
       "src/**/*.tsx",
       "src/types/**/*.d.ts"],
   }

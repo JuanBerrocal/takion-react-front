@@ -1,6 +1,6 @@
 
-export declare const process: {
+declare const process: {
     env: {
-        API_URL: string;
-    }
-}
+        API_URL?: string;
+    };
+};
